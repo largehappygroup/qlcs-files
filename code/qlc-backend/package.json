@@ -1,0 +1,23 @@
+{
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js",
+        "run-job": "node workers/runCreateExercisesJob.js",
+        "pregenerate": "node workers/pregenerateExercises.js"
+    },
+    "dependencies": {
+        "@json2csv/transforms": "^7.0.6",
+        "@types/multer": "^2.0.0",
+        "axios": "^1.13.5",
+        "cors": "^2.8.5",
+        "csv": "^6.4.1",
+        "csv-parser": "^3.2.0",
+        "dayjs": "^1.11.19",
+        "dotenv": "^16.4.7",
+        "express": "^5.2.1",
+        "json2csv": "^6.0.0-alpha.2",
+        "mongoose": "^9.2.1",
+        "multer": "^2.0.1",
+        "nodemon": "^3.1.14"
+    }
+}

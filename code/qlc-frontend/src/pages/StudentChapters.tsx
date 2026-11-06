@@ -1,0 +1,62 @@
+import Layout from "../components/Layout";
+import ChapterDetailsList from "../components/exercises/ChapterDetailsList";
+
+import { Anchor, Grid, Title, Text, Flex, Box, Loader } from "@mantine/core";
+import { useAllChapters } from "../hooks/useChapters";
+
+const StudentChapters: React.FC = () => {
+    const today = new Date();
+    today.setHours(0, 1, 0, 0);
+    const { data: chapters, isLoading } = useAllChapters(undefined, true);
+
+    return (
+        <Layout title="Chapters">
+            {isLoading ? (
+                <Loader size="lg" type="dots" />
+            ) : chapters && chapters.length > 0 ? (
+                <Grid>
+                    <Grid.Col span={2}>
+                        <Flex direction="column" gap="sm" align="start">
+                            {chapters?.map((chapter) => (
+                                <Anchor
+                                    style={{ wordBreak: "break-word" }}
+                                    key={chapter.uuid}
+                                    href={`#chapter-${chapter.order}`}
+                                >
+                                    {chapter.title}
+                                </Anchor>
+                            ))}
+                        </Flex>
+                    </Grid.Col>
+                    <Grid.Col span={10}>
+                        {chapters &&
+                            chapters.map((chapter) => (
+                                <>
+                                    <Box p="sm" bg="cyan.1" bdrs={10}>
+                                        <Title
+                                            id={`chapter-${chapter.order}`}
+                                            order={3}
+                                            size="sm"
+                                            c="cyan"
+                                        >
+                                            {chapter.title}
+                                        </Title>
+                                    </Box>
+
+                                    <ChapterDetailsList
+                                        key={chapter.uuid}
+                                        chapter={chapter}
+                                        
+                                    />
+                                </>
+                            ))}
+                    </Grid.Col>
+                </Grid>
+            ) : (
+                <Text>No chapters available.</Text>
+            )}
+        </Layout>
+    );
+};
+
+export default StudentChapters;

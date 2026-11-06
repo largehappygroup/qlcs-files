@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Roboto;
+    src: url("./assets/fonts/Roboto-VariableFont_wdth,wght.ttf");
+}
+
+@font-face {
+    font-family: IBMPlexSans;
+    src: url("./assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf");
+}
+
+@font-face {
+    font-family: Mulish;
+    src: url("./assets/fonts/Mulish-VariableFont_wght.ttf");
+}
+
+p {
+    font-family: IBMPlexSans, monospace;
+}
+
+body {
+    font-family: IBMPlexSans, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: IBMPlexSans, monospace;
+}
